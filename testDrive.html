@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Drive - Car Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MGZ Car Agency</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="financing.html">Financing</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="testDrive.html">Test Drive</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="test-drive-container">
+        <h1>Book Your Test Drive</h1>
+        <p>Fill out the form below to schedule your test drive.</p>
+
+        <form action="submit_test_drive.php" method="POST" class="test-drive-form">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="car-model">Car Model:</label>
+                <select id="car-model" name="car-model" required>
+                    <option value="Toyota">Toyota</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Mercedes">Mercedes</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Ford">Ford</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="test-drive-date">Preferred Date:</label>
+                <input type="date" id="test-drive-date" name="test-drive-date" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Book Test Drive</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MGZ Car Agency. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/login/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/accounts/login/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/login" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
