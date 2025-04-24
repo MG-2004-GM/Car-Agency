@@ -35,6 +35,8 @@ header h1 {
     margin: 0;
 }
 
+
+
 nav ul {
     display: flex;
     justify-content: center;
@@ -143,7 +145,7 @@ form textarea {
     font-size: 1rem;
 }
 
-button, .submit-btn {
+button{
     padding: 15px;
     background-color: #007BFF;
     color: white;
@@ -154,7 +156,23 @@ button, .submit-btn {
     transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform transition */
 }
 
-button:hover, .submit-btn:hover {
+#submit-btn{
+    padding: 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+
+}
+
+#submit-btn:hover{
+    background-color: #0056b3;
+}
+
+button:hover{
     background-color: #0056b3;
 }
 
@@ -335,7 +353,8 @@ button:hover, .submit-btn:hover {
 
 label {
     font-size: 1rem;
-    color: #333;
+    color: #ree Trial Has Ended
+    Thank you for trying Cursor Pro! To continue enjoying premium features like:333;
     margin-bottom: 5px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds a soft shadow to the text */
 }
@@ -526,3 +545,6 @@ footer .container {
     }
 }
 
+#Toggle {
+    text-align:right;
+}
