@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // --- Handle Contact Form ---
+    
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function (event) {
@@ -29,12 +29,85 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Handle Test Drive Form ---
+    
     const testDriveForm = document.querySelector('.test-drive-form');
     const submitBtn = document.getElementById("submit-btn");
 
     if (testDriveForm) {
-        function checkFormValidity() {
+        
+        function showError(inputId, message) {
+            const errorElement = document.getElementById(`${inputId}-error`);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            document.getElementById(inputId).style.borderColor = 'red';
+        }
+
+        
+        function hideError(inputId) {
+            const errorElement = document.getElementById(`${inputId}-error`);
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+            document.getElementById(inputId).style.borderColor = '';
+        }
+
+
+        testDriveForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default, we control manually
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const carModel = document.getElementById("car-model").value.trim();
+            const testDriveDate = document.getElementById("test-drive-date").value.trim();
+
+            const phonePattern = /^\d{11}$/; // exactly 11 digits
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // simple email pattern
+
+            let isValid = true;
+
+
+            if (name === "") {
+                showError("name", "Please enter your name.");
+                isValid = false;
+            } else {
+                hideError("name");
+            }
+
+            if (!emailPattern.test(email)) {
+                showError("email", "Please enter a valid email address.");
+                isValid = false;
+            } else {
+                hideError("email");
+            }
+
+            if (!phonePattern.test(phone)) {
+                showError("phone", "Phone number must be exactly 11 digits.");
+                isValid = false;
+            } else {
+                hideError("phone");
+            }
+
+            if (carModel === "") {
+                showError("car-model", "Please select a car model.");
+                isValid = false;
+            } else {
+                hideError("car-model");
+            }
+
+            if (testDriveDate === "") {
+                showError("test-drive-date", "Please select a test drive date.");
+                isValid = false;
+            } else {
+                hideError("test-drive-date");
+            }
+
+            if (isValid) {
+                book(event); // if everything is valid, continue
+            }
+        });
+
+
+        testDriveForm.addEventListener('input', function () {
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
             const phone = document.getElementById("phone").value.trim();
@@ -42,24 +115,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const testDriveDate = document.getElementById("test-drive-date").value.trim();
 
             submitBtn.disabled = !(name && email && phone && carModel && testDriveDate);
-        }
-
-        testDriveForm.addEventListener('input', checkFormValidity);
-
-        testDriveForm.addEventListener('submit', function (event) {
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const carModel = document.getElementById("car-model").value.trim();
-            const testDriveDate = document.getElementById("test-drive-date").value.trim();
-
-            if (!(name && email && phone && carModel && testDriveDate)) {
-                event.preventDefault();
-            } else {
-                book(event);
-            }
         });
     }
+
 
     function book(event) {
         event.preventDefault();
