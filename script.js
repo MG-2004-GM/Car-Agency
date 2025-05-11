@@ -129,4 +129,22 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
     }
+    var i = 0;
+    var images = [];
+    var time = 2000;
+
+    images[0] = "./photos/Mercedes benz Cla 35 Amgg.png";
+    images[1] = "./photos/Ford Focus.png";
+    images[2] = "./photos/Skoda Kodiaq 2024.png";
+    images[3] = "./photos/Hyundai Tucson 2024.png";
+    images[4] = "./photos/Kia sportage V.png" ;
+    images[5] = "./photos/WhatsApp Image 2025-04-14 at 00.28.51_7dbc65b6.jpg";
+    images[6] = "./photos/WhatsApp Image 2025-04-14 at 00.28.51_5b7b8dab.jpg"
+    function changeimg(){
+        const imgelement = document.getElementById("slide");
+        imgelement.src = images[i];
+        i = (i + 1) % images.length;
+        setTimeout(changeimg,time);
+    }
+    window.onload = changeimg;
 });
