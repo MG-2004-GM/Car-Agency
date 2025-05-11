@@ -147,4 +147,18 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(changeimg,time);
     }
     window.onload = changeimg;
+
+    const themeLink = document.getElementById('theme-style');
+    const savedTheme = localStorage.getItem('theme') || 'light-mode.css';
+    themeLink.setAttribute('href', savedTheme);
+  
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const currentTheme = themeLink.getAttribute('href');
+        const newTheme = currentTheme === 'light-mode.css' ? 'dark-mode.css' : 'light-mode.css';
+        themeLink.setAttribute('href', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    }
 });
